@@ -19,6 +19,10 @@ use App\Http\Controllers\RiwayatController;
 |
 */
 // auth
+Route::get('/Welcome', function () {
+    return view('user/welcome');
+});
+
 Route::get('/', function () {
     return view('login');
 })->name('login');
