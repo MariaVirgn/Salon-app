@@ -1,0 +1,19 @@
+html,
+body {
+    background-color: #aeaeae85;
+    height: 100%;
+    margin: 0;
+}
+
+.container-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.card {
+    box-shadow: 2px 2px 5px 0.2px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 600px;
+}
