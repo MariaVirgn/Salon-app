@@ -12,6 +12,66 @@
     <link rel="stylesheet" href="./css/login.css">
 </head>
 
+<style> 
+/* login.css */
+
+body {
+    background-color: #f8f9fa; /* Warna latar belakang */
+}
+
+.container-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Agar form berada di tengah-tengah layar */
+}
+
+.card {
+    max-width: 400px;
+    border: none;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Shadow untuk card */
+}
+
+.card-header {
+    background-color: #007bff; /* Warna latar header */
+    color: white;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+.card-title {
+    margin-bottom: 0; /* Menghilangkan margin bawah pada judul */
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Warna ketika tombol dihover */
+}
+
+.form-control {
+    border-radius: 20px; /* Agar input membulat di sudut */
+}
+
+.card-footer {
+    background-color: #f8f9fa; /* Warna latar belakang footer */
+    border-top: none; /* Menghilangkan border atas pada footer */
+}
+
+a {
+    color: #007bff; /* Warna teks link */
+}
+
+body {
+            background-color: #f8f9fa;
+        }
+</style>
+
 <body>
     @if ($errors->any())
         <div class="alert alert-danger">
