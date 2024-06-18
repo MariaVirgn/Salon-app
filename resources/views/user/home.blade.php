@@ -45,8 +45,9 @@
                             <input type="date" class="form-control mb-3" placeholder="Tanggal" id="tgl">
                             <select class="form-control mb-2" id="pembayaran" name="pembayaran">
                                 <option value="">Pilih Metode Pembayaran</option>
-                                <option value="cash">Cash</option>
-                                <option value="Transfer">Transfer</option>
+                                <option value="Dana">Dana</option>
+                                <option value="Bank">Bank</option>
+                                <option value="Gopay">Gopay</option>
                             </select>
                         </div>
                     </div>
