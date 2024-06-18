@@ -4,7 +4,7 @@
     <div class="container" style="margin-top: 15vh">
         <div class="card" style="box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.333);">
             <div class="card-header">
-                <h3 class="card-title">Daftar Jasa</h3>
+                <h3 class="card-title">Treatment</h3>
             </div>
             <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
