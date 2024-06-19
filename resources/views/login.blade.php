@@ -13,8 +13,6 @@
 </head>
 
 <style> 
-/* login.css */
-
 body {
     background-color: #f8f9fa; /* Warna latar belakang */
 }

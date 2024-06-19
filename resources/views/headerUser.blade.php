@@ -72,6 +72,8 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 <script>
     function logout() {
 
@@ -87,13 +89,13 @@
             data: {},
             success: function(response) {
                 window.location = "{{ route('login') }}";
-                // // Show success SweetAlert after deletion
-                // Swal.fire({
-                //     title: 'Logout success!',
-                //     icon: 'success',
-                //     timer: 1500,
-                //     buttons: false,
-                // });
+                 //Show success SweetAlert after deletion
+                 Swal.fire({
+                     title: 'Logout success!',
+                     icon: 'success',
+                    timer: 1500,
+                     buttons: false,
+                 });
             },
             error: function(xhr, status, error) {
                 console.log(xhr.responseText);
