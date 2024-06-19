@@ -121,7 +121,12 @@
                     },
                     success: function(response) {
                         if (response.success) {
-                            alert('Data berhasil diubah');
+                            Swal.fire({
+                            title: "Akun Sudah di edit",
+                            text: "Clicked the button!",
+                            icon: "success"
+                        });
+                        read();
                             $('#modalEdit').modal('hide');
                             read();
                         } else {
@@ -148,7 +153,11 @@
                 },
                 success: function(data, status) {
                     if (status === 'success') {
-                        alert('Akun Berhasil Dihapus');
+                        Swal.fire({
+                        title: "Akun Sudah di hapus",
+                        text: "Clicked the button!",
+                        icon: "success"
+                        });
                         read();
                     } else {
                         alert('Terjadi Kesalahan Saat Menghapus Akun');
