@@ -27,23 +27,6 @@
             </div>
         </div>
     </div>
-    <style>
-  .container {
-    margin-top: 100px; /* Adjust margin-top as needed */
-  }
-
-  .table-hover tbody tr:hover {
-    background-color: #eee;  /* Add hover background color */
-  }
-</style>
-
-@endsection()
-
-@section('scripts')
-  <script>
-    $(document).ready(function() {
-      read();
-    });
 @endsection()
 
 @section('scripts')
