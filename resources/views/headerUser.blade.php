@@ -11,17 +11,77 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-</head>
-<style>
-    .nav-link,
-    .navbar-brand {
-        color: #000000 !important;
-    }
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('/img/background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #ffffff;
+        }
 
-    .nav-item{
-      margin-left: 3vh; 
-    }
-</style>
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.5) !important;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand img {
+            margin-right: 10px;
+        }
+
+        .navbar-brand span {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 1.5rem;
+            color: #ffffff !important;
+        }
+
+        .nav-link {
+            color: #ffffff !important;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #ffd700 !important;
+        }
+
+        .btn-danger {
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+            border-color: #bd2130;
+        }
+
+        .container {
+            margin-top: 70px;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header img {
+            width: 100px;
+            height: auto;
+        }
+
+        .header h1 {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 3rem;
+            margin-top: 10px;
+        }
+    </style>
+</head>
 
 <body>
     <div class="container">
@@ -45,7 +105,7 @@
                             <a class="nav-link" href="Welcome">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="menu">Daftar Treatment</a>
+                            <a class="nav-link" href="menu">Daftar Jasa</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="booking">Pemesanan</a>
@@ -65,13 +125,46 @@
         </nav>
         @yield('container')
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        function logout() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $.ajax({
+                url: "{{ route('logout') }}",
+                method: "POST",
+                data: {},
+                success: function(response) {
+                    window.location = "{{ route('login') }}";
+                },
+                error: function(xhr, status, error) {
+                    console.log(xhr.responseText);
+                    alert('Error: ' + xhr.responseText);
+                }
+            })
+        }
+    </script>
+
+    @yield('scripts')
 </body>
+<<<<<<< HEAD
+=======
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
 </script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 <script>
     function logout() {
 
@@ -87,13 +180,13 @@
             data: {},
             success: function(response) {
                 window.location = "{{ route('login') }}";
-                // // Show success SweetAlert after deletion
-                // Swal.fire({
-                //     title: 'Logout success!',
-                //     icon: 'success',
-                //     timer: 1500,
-                //     buttons: false,
-                // });
+                 //Show success SweetAlert after deletion
+                 Swal.fire({
+                     title: 'Logout success!',
+                     icon: 'success',
+                    timer: 1500,
+                     buttons: false,
+                 });
             },
             error: function(xhr, status, error) {
                 console.log(xhr.responseText);
@@ -105,5 +198,6 @@
 </script>
 
 @yield('scripts')
+>>>>>>> 08d6766c7a2bc059f1e69bf6b1048eb8a028e853
 
 </html>

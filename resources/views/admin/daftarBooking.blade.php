@@ -65,7 +65,11 @@
                 'harga':harga
             }, function(data, status) {
                 if (status === 'success') {
-                    alert('Pesanan Berhasil Dikonfirmasi');
+                    Swal.fire({
+                            title: "Pesanan sudah di konfirmasi",
+                            text: "Clicked the button!",
+                            icon: "success"
+                        });
                     read();
                 } else {
                     alert('Terjadi Kesalahan Saat Mengkonfirmasi Pesanan')
@@ -85,7 +89,11 @@
                 },
                 success: function(data, status) {
                     if (status === 'success') {
-                        alert('Pesanan Berhasil Dihapus');
+                        Swal.fire({
+                            title: "Pesanan sudah di hapus",
+                            text: "Clicked the button!",
+                            icon: "success"
+                        });
                         read();
                     } else {
                         alert('Terjadi Kesalahan Saat Menghapus Pesanan');
