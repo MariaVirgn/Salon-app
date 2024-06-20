@@ -105,7 +105,7 @@
                             <a class="nav-link" href="Welcome">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="menu">Daftar Jasa</a>
+                            <a class="nav-link" href="menu">Daftar Treatment</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="booking">Pemesanan</a>
@@ -114,7 +114,7 @@
                             <a class="nav-link" href="edit-akun">Edit Akun</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="about">Tentang</a>
+                            <a class="nav-link" href="about">About</a>
                         </li>
                         <li class="nav-item">
                             <button class="btn btn-danger" onclick="logout()">Logout</button>
