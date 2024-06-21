@@ -84,48 +84,46 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="/img/logo.png" alt="logo" width="35" height="45">
-                <span>Celestical Salon</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo01">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 mr-3">
-                    <li class="nav-item">
-                        <a class="nav-link" href="Welcome">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="menu">Daftar Jasa</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="booking">Pemesanan</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="edit-akun">Edit Akun</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <button class="btn btn-danger" onclick="logout()">Logout</button>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
     <div class="container">
-        <div class="header">
-            <img src="/img/logo.png" alt="Celestical Salon Logo">
-            <h1>Celestical Salon</h1>
-        </div>
-        <div class="content">
-            @yield('container')
-        </div>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top"
+            style="box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.333);">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    {{-- <img src="./img/logo.png" alt="logo" width="35" height="45"> --}}
+                    <span class="navbar-brand mb-0 h1">Celestical Salon</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo01">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 mr-3">
+
+                        {{-- IF USER --}}
+                        <li class="nav-item">
+                            <a class="nav-link" href="Welcome">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="menu">Daftar Treatment</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="booking">Pemesanan</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="edit-akun">Edit Akun</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn btn-danger" onclick="logout()">Logout</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        @yield('container')
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
