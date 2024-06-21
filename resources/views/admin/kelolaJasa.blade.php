@@ -1,86 +1,101 @@
 @extends('headerAdmin')
+
 @section('container')
-    <div class="container" style="margin-top: 15vh">
-        <div class="card" style="box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.333);">
-            <div class="card-header">
-                <h3 class="card-title">Kelola Jasa</h3>
+<style>
+    .card-custom {
+        background: linear-gradient(to right, #4e54c8, #8f94fb); /* Sesuaikan warna gradient yang diinginkan di sini */
+    }
+</style>
+
+<div class="container-fluid" style="background-image: url('/img/backgroundadmin.jpg'); background-size: cover; background-position: center;">
+    <div class="row justify-content-center align-items-center vh-100">
+        <div class="col-md-8">
+            <div class="card shadow card-custom"> <!-- Tambahkan class card-custom di sini -->
+                <div class="card-header bg-primary text-white">
+                    <h3 class="card-title">Kelola Jasa</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col">
+                            <button class="btn btn-primary" data-bs-toggle='modal' data-bs-target='#modalInsert'>Tambah</button>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table id="example1" class="table table-bordered table-striped table-hover">
+                            <thead class="table-light">
+                                <tr>
+                                    <th scope="col">No</th>
+                                    <th scope="col">Nama</th>
+                                    <th scope="col">Harga</th>
+                                    <th scope="col">Deskripsi</th>
+                                    <th scope="col">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tBody">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
-            <div class="card-body">
-                <div class="row mb-3">
+        </div>
+    </div>
+</div>
+
+<!-- Modal Insert-->
+<div class="modal fade" id="modalInsert" tabindex="-1" aria-labelledby="insertModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h1 class="modal-title fs-5" id="insertModalLabel">Tambah Jasa</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
                     <div class="col">
-                        <button class="btn btn-primary" data-bs-toggle='modal' data-bs-target='#modalInsert'>Tambah</button>
+                        <input type="text" class="form-control mb-3" placeholder="Nama" id="nama">
+                        <input type="text" class="form-control mb-3" placeholder="Harga" id="harga">
+                        <input type="text" class="form-control mb-3" placeholder="Deskripsi" id="desc">
                     </div>
                 </div>
-                <table id="example1" class="table table-bordered table-striped">
-                    <thead class="table-light">
-                        <tr>
-                            <th scope="col">No</th>
-                            <th scope="col">Nama</th>
-                            <th scope="col">Harga</th>
-                            <th scope="col">Deskripsi</th>
-                            <th scope="col">Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tBody" class="table-group-divider">
-
-                    </tbody>
-                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                <button type="button" class="btn btn-primary" onclick="insert()">Simpan</button>
             </div>
         </div>
     </div>
+</div>
 
-
-    <!-- Modal Insert-->
-    <div class="modal fade" id="modalInsert" tabindex="-1" aria-labelledby="insertModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="insertModalLabel">Tambah Jasa</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col">
-                            <input type="text" class="form-control mb-3" placeholder="Nama" id="nama">
-                            <input type="text" class="form-control mb-3" placeholder="Harga" id="harga">
-                            <input type="text" class="form-control mb-3" placeholder="Deskripsi" id="desc">
-                        </div>
+<!-- Modal Edit-->
+<div class="modal fade" id="modalEdit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Jasa</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col">
+                        <input type="text" class="form-control mb-3" id="id_edit" hidden>
+                        <input type="text" class="form-control mb-3" placeholder="Nama" id="nama_edit">
+                        <input type="text" class="form-control mb-3" placeholder="Harga" id="harga_edit">
+                        <input type="text" class="form-control mb-3" placeholder="Deskripsi" id="desc_edit">
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <button type="button" class="btn btn-primary" onclick="insert()">Save</button>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                <button type="button" class="btn btn-primary" onclick="update()">Edit</button>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Modal Edit-->
-    <div class="modal fade" id="modalEdit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Jasa</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col">
-                            <input type="text" class="form-control mb-3" id="id_edit" hidden>
-                            <input type="text" class="form-control mb-3" placeholder="Nama" id="nama_edit">
-                            <input type="text" class="form-control mb-3" placeholder="Harga" id="harga_edit">
-                            <input type="text" class="form-control mb-3" placeholder="Deskripsi" id="desc_edit">
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <button type="button" class="btn btn-primary" onclick="update()">Edit</button>
-                </div>
-            </div>
-        </div>
-    </div>
-@endsection()
+@endsection
+
+
 
 @section('scripts')
     <script>

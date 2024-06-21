@@ -1,12 +1,12 @@
 @extends('headerAdmin')
 @section('container')
-    <div class="container" style="margin-top: 15vh">
-        <div class="card" style="box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.333);">
-            <div class="card-header">
+    <div class="container" style="margin-top: 15vh; background: linear-gradient(135deg, rgba(246, 211, 101, 0.8), rgba(253, 160, 133, 0.8)), url('/img/backgroundadmin.jpg'); background-size: cover; background-position: center; padding: 2rem; border-radius: 15px;">
+        <div class="card" style="box-shadow: 1px 3px 15px rgba(0, 0, 0, 0.2);">
+            <div class="card-header" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
                 <h3 class="card-title">Kelola Akun</h3>
             </div>
             <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
+                <table id="example1" class="table table-hover table-bordered table-striped">
                     <thead class="table-light">
                         <tr>
                             <th scope="col">No</th>
@@ -18,7 +18,7 @@
                         </tr>
                     </thead>
                     <tbody id="tBody" class="table-group-divider">
-
+                        <!-- Data rows will be inserted here -->
                     </tbody>
                 </table>
             </div>
@@ -29,7 +29,7 @@
     <div class="modal fade" id="modalEdit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Akun</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -40,7 +40,7 @@
                             <input type="text" class="form-control mb-3" placeholder="Nama" id="nama">
                             <input type="number" class="form-control mb-3" placeholder="Nomor" id="nomor" maxlength="12">
                             <input type="text" class="form-control mb-3" placeholder="Alamat" id="alamat">
-                            <input type="email" class="form-control mb-3" placeholder="email" id="email">
+                            <input type="email" class="form-control mb-3" placeholder="Email" id="email">
                         </div>
                     </div>
                 </div>
@@ -51,7 +51,10 @@
             </div>
         </div>
     </div>
-@endsection()
+@endsection
+
+
+
 
 @section('scripts')
     <script>

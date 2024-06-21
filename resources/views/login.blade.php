@@ -10,65 +10,66 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/login.css">
-</head>
-
-<style> 
-body {
-    background-color: #f8f9fa; /* Warna latar belakang */
-}
-
-.container-flex {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Agar form berada di tengah-tengah layar */
-}
-
-.card {
-    max-width: 400px;
-    border: none;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Shadow untuk card */
-}
-
-.card-header {
-    background-color: #007bff; /* Warna latar header */
-    color: white;
-}
-
-.card-body {
-    padding: 2rem;
-}
-
-.card-title {
-    margin-bottom: 0; /* Menghilangkan margin bawah pada judul */
-}
-
-.btn-primary {
-    background-color: #007bff;
-    border: none;
-}
-
-.btn-primary:hover {
-    background-color: #0056b3; /* Warna ketika tombol dihover */
-}
-
-.form-control {
-    border-radius: 20px; /* Agar input membulat di sudut */
-}
-
-.card-footer {
-    background-color: #f8f9fa; /* Warna latar belakang footer */
-    border-top: none; /* Menghilangkan border atas pada footer */
-}
-
-a {
-    color: #007bff; /* Warna teks link */
-}
-
-body {
-            background-color: #f8f9fa;
+    <style>
+        body {
+            background: url('/img/backlog.jpg') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
         }
-</style>
+
+        .card {
+            max-width: 400px;
+            border: none;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.7); /* Transparansi lebih tinggi */
+            border-radius: 20px;
+        }
+
+        .card-header {
+            background: linear-gradient(45deg, #ff7e5f, #feb47b);
+            color: white;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+        .card-body {
+            padding: 2rem;
+        }
+
+        .card-title {
+            margin-bottom: 0;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #ff7e5f, #feb47b);
+            border: none;
+            border-radius: 20px;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(45deg, #e66465, #9198e5);
+        }
+
+        .form-control {
+            border-radius: 20px;
+        }
+
+        .card-footer {
+            background-color: rgba(255, 255, 255, 0.7); /* Transparansi lebih tinggi */
+            border-top: none;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+        a {
+            color: #007bff;
+        }
+    </style>
+</head>
 
 <body>
     @if ($errors->any())

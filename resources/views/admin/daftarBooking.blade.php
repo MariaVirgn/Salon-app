@@ -1,15 +1,17 @@
 @extends('headerAdmin')
+
 @section('container')
-    <div class="container" style="margin-top: 15vh">
-        <div class="card" style="box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.333);">
-            <div class="card-header">
-                <h3 class="card-title">Daftar Booking</h3>
-            </div>
-            <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
-                    <table id="example1" class="table table-bordered table-striped">
-                        <thead class="table-light">
-                            <tr>
+    <div class="container-fluid background-custom" style="margin-top: 15vh;">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="card card-custom">
+                    <div class="card-header">
+                        <h3 class="card-title">Daftar Booking</h3>
+                    </div>
+                    <div class="card-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead class="table-light">
+                                <tr>
                                 <th scope="col">No</th>
                                 <th scope="col">Nama</th>
                                 <th scope="col">Jasa</th>
@@ -21,13 +23,16 @@
                             </tr>
                         </thead>
                         <tbody id="tBody" class="table-group-divider">
-
+                            <!-- Data Booking akan dimuat di sini -->
                         </tbody>
                     </table>
+                </div>
             </div>
         </div>
     </div>
-@endsection()
+</div>
+@endsection
+
 
 @section('scripts')
     <script>

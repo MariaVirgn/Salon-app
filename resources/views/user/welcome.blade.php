@@ -50,7 +50,7 @@
 <style>
     .container {
         text-align: center;
-        background: url('/img/background.jpg') no-repeat center center;
+        background: url('/img/background-1.jpg') no-repeat center center;
         background-size: contain;
         padding: 20px;
         border-radius: 10px;

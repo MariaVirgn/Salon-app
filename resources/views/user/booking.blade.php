@@ -1,32 +1,58 @@
 @extends('headerUser')
-@section('container')
-    <div class="container" style="margin-top: 15vh;">
-        <div class="card" style="box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.333);">
-            <div class="card-header">
-                <h3 class="card-title">Status Pemesanan</h3>
-            </div>
-            <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
-                    <table id="example1" class="table table-bordered table-striped">
-                        <thead class="table-light">
-                            <tr>
-                                <th scope="col">No</th>
-                                <th scope="col">Nama</th>
-                                <th scope="col">Jasa</th>
-                                <th scope="col">Jam</th>
-                                <th scope="col">Tanggal</th>
-                                <th scope="col">Metode Pembayaran</th>
-                                <th scope="col">Status</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tBody" class="table-group-divider">
 
-                        </tbody>
-                    </table>
+@section('container')
+    <div class="container d-flex justify-content-center" style="margin-top: 15vh;">
+        <div class="card shadow-lg w-75" style="border: none; border-radius: 15px; background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);">
+            <div class="card-header text-center py-3" style="background-color: rgba(255, 255, 255, 0.8); color: #343a40; border-radius: 15px 15px 0 0;">
+                <h2 class="card-title mb-0" style="font-weight: bold; font-size: 2.5rem;">Status <span style="color: #fd1d1d;">Pemesanan</span></h2>
+            </div>
+            <div class="card-body p-4" style="background-color: rgba(255, 255, 255, 0.95); border-radius: 0 0 15px 15px;">
+                <table id="example1" class="table table-bordered table-hover" style="border-collapse: separate; border-spacing: 0 10px;">
+                    <thead style="background-color: #343a40; color: white;">
+                        <tr>
+                            <th scope="col">No</th>
+                            <th scope="col">Nama</th>
+                            <th scope="col">Jasa</th>
+                            <th scope="col">Jam</th>
+                            <th scope="col">Tanggal</th>
+                            <th scope="col">Metode Pembayaran</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tBody">
+                        <!-- Isi tabel akan dimuat di sini -->
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-@endsection()
+
+    <style>
+        .card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .table-hover tbody tr:hover {
+            background-color: rgba(37, 117, 252, 0.1);
+        }
+        .card-header {
+            border-bottom: none;
+        }
+        .card-body {
+            border-top: 1px solid #dee2e6;
+        }
+        .table-bordered th, .table-bordered td {
+            border: 1px solid #dee2e6;
+        }
+        .table th, .table td {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+    </style>
+@endsection
+
 
 @section('scripts')
     <script>

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+< lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Celestical Salon</title>
+    <title>Celestial Salon</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="icon" href="./img/logo.png">
+    <link rel="icon" href="/img/logo.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -14,25 +14,35 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 </head>
+
 <style>
+    .navbar {
+        background: rgba(255, 255, 255, 0.7) !important; /* Transparansi latar belakang */
+        backdrop-filter: blur(10px); /* Efek blur untuk teks yang lebih terbaca */
+        box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.333);
+    }
+
     .nav-link,
     .navbar-brand {
         color: #000000 !important;
     }
 
-    .nav-item{
-      margin-left: 3vh; 
+    .nav-item {
+        margin-left: 3vh;
+    }
+
+    .navbar-toggler-icon {
+        filter: invert(1);
     }
 </style>
 
 <body>
     <div class="container">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top"
-            style="box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.333);">
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
                     {{-- <img src="./img/logo.png" alt="logo" width="35" height="45"> --}}
-                    <span class="navbar-brand mb-0 h1">Celestical Salon</span>
+                    <span class="navbar-brand mb-0 h1">Celestial Salon</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false"
