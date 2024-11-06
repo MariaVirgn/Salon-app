@@ -44,22 +44,22 @@ class AuthController extends Controller
     }
 
     public function login(Request $request)
-    {
-        $credentials = $request->validate([
-            'username' => 'required',
-            'password' => 'required'
-        ]);
+{
+    $credentials = $request->validate([
+        'username' => 'required',
+        'password' => 'required'
+    ]);
 
-        if (Auth::attempt($credentials)) {
-            $_SESSION['role'] = 'cust';
-            return redirect()->route('cust_menu');
-        } elseif (Auth::guard('admin')->attempt($credentials)) {
-            $_SESSION['role'] = 'admin';
-            return redirect()->route('admin_menu');
-        } else {
-            return redirect()->back()->withErrors("Username atau password salah")->withInput();
-        }
+    if (Auth::attempt($credentials)) {
+        $_SESSION['role'] = 'cust';
+        return redirect()->route('cust_menu');
+    } elseif (Auth::guard('admin')->attempt($credentials)) {
+        $_SESSION['role'] = 'admin';
+        return redirect()->route('admin_menu');
+    } else {
+        return redirect()->back()->withErrors(['login_failed' => 'Username atau password salah'])->withInput();
     }
+}
 
     public function logout()
     {
