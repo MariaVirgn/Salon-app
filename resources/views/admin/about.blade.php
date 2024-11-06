@@ -1,24 +1,35 @@
 @extends('headerAdmin')
 
 @section('container')
-    <div class="container" style="margin-top: 15vh;">
-        <div class="card" style="box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.333);">
-            <div class="card-header">
-                <h3 class="card-title">About</h3>
-            </div>
-            <div class="card-body">
-                <div class="form-floating">
-                    <input type="text" class="form-control" id="id" hidden>
-                    <textarea class="form-control" placeholder="Isi Konten About" id="about" style="height: 250px"></textarea>
-                    <label for="floatingTextarea2"></label>
+    <div class="container mt-5">
+        <div class="card border-0 shadow-lg rounded-lg w-75 mx-auto">
+            <div class="card-body" style="background: linear-gradient(to right, #11998e, #38ef7d);">
+                <div class="row align-items-center">
+                    <div class="col-md-4 text-center">
+                        <img src="./img/logo.png" class="img-fluid rounded-circle shadow-lg" alt="Salon Logo" style="width: 200px;">
+                    </div>
+                    <div class="col-md-8">
+                        <h2 class="card-title mb-4" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #fff; font-weight: bold;">
+                            Celestial Salon
+                        </h2>
+                        <p class="lead" style="font-family: 'Arial', sans-serif; color: #fff;">
+                            Celestial Salon was founded with a vision to become a leading salon in providing high-quality beauty and self-care services to our clients. We are committed to delivering an unforgettable experience for every client by combining the expertise of our experienced therapists, the finest quality products, and a comfortable and soothing salon atmosphere.
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div class="card-footer d-flex justify-content-end">
-                <button class="btn btn-primary" onclick="simpan()">Simpan</button>
             </div>
         </div>
     </div>
-@endsection()
+
+    <style>
+        .card-body {
+            padding: 40px;
+            border-radius: 15px;
+        }
+    </style>
+@endsection
+
+
 
 @section('scripts')
     <script>
