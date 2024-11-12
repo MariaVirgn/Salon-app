@@ -87,7 +87,19 @@ Route::get('/riwayat', function () {
 });
 Route::get('/riwayat-transaksi', [RiwayatController::class, 'getRiwayatTransaksi'])->name('getRiwayatTransaksi');
 
-Route::get('/about-admin', function () {
-    return view('admin/about');
+
+
+Route :: middleware('auth:admin')->group(function(){
+    Route::get('/about-admin', function () {
+        return view('admin/about');
+    });
+
+    Route::post('/update-about', [AboutController::class, 'updateAbout'])->name('updateAbout');
+
+
 });
-Route::post('/update-about', [AboutController::class, 'updateAbout'])->name('updateAbout');
+
+Route :: middleware('auth:user')->group(function(){
+
+
+});

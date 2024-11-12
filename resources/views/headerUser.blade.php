@@ -22,35 +22,62 @@
         }
 
         .navbar {
-            background-color: rgba(0, 0, 0, 0.5) !important;
+            
+            padding: 15px 10px;
+            box-shadow: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar:hover {
+            background-color: rgba(0, 0, 0, 0.7) !important;
         }
 
         .navbar-brand {
             display: flex;
             align-items: center;
+            font-family: 'Brush Script MT', cursive;
+            font-size: 2rem;
+            color: #ffffff !important;
         }
 
         .navbar-brand img {
             margin-right: 10px;
-        }
-
-        .navbar-brand span {
-            font-family: 'Brush Script MT', cursive;
-            font-size: 1.5rem;
-            color: #ffffff !important;
+            width: 50px;
+            height: auto;
         }
 
         .nav-link {
             color: #ffffff !important;
-            transition: color 0.3s ease;
+            font-weight: bold;
+            margin: 0 15px;
+            position: relative;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
         .nav-link:hover {
             color: #ffd700 !important;
+            transform: scale(1.1);
+        }
+
+        .navbar-nav li::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #ffd700;
+            bottom: -5px;
+            left: 50%;
+            transition: width 0.3s ease, left 0.3s ease;
+        }
+
+        .navbar-nav li:hover::before {
+            width: 100%;
+            left: 0;
         }
 
         .btn-danger {
             transition: background-color 0.3s ease, border-color 0.3s ease;
+            font-weight: bold;
         }
 
         .btn-danger:hover {
@@ -85,12 +112,10 @@
 
 <body>
     <div class="container">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top"
-            style="box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.333);">
+        <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    {{-- <img src="./img/logo.png" alt="logo" width="35" height="45"> --}}
-                    <span class="navbar-brand mb-0 h1">Celestical Salon</span>
+                    <span>Celestical Salon</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false"
@@ -99,8 +124,6 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo01">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 mr-3">
-
-                        {{-- IF USER --}}
                         <li class="nav-item">
                             <a class="nav-link" href="Welcome">Home</a>
                         </li>
@@ -144,6 +167,12 @@
                 data: {},
                 success: function(response) {
                     window.location = "{{ route('login') }}";
+                    Swal.fire({
+                        title: 'Logout success!',
+                        icon: 'success',
+                        timer: 1500,
+                        buttons: false,
+                    });
                 },
                 error: function(xhr, status, error) {
                     console.log(xhr.responseText);
@@ -155,47 +184,5 @@
 
     @yield('scripts')
 </body>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-</script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-<script>
-    function logout() {
-
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-
-        $.ajax({
-            url: "{{ route('logout') }}",
-            method: "POST",
-            data: {},
-            success: function(response) {
-                window.location = "{{ route('login') }}";
-                 //Show success SweetAlert after deletion
-                 Swal.fire({
-                     title: 'Logout success!',
-                     icon: 'success',
-                    timer: 1500,
-                     buttons: false,
-                 });
-            },
-            error: function(xhr, status, error) {
-                console.log(xhr.responseText);
-                alert('Error: ' + xhr.responseText);
-            }
-        })
-
-    }
-</script>
-
-@yield('scripts')
 
 </html>
