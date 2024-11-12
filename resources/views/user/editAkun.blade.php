@@ -53,7 +53,7 @@
        .btn-gradient {
            background: linear-gradient(90deg, #ff7e5f, #feb47b);
            border: none;
-           color: white;
+           color: beige;
            padding: 10px 20px;
            border-radius: 30px;
            transition: background 0.3s;
