@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="./css/login.css">
     <style>
         body {
-            background: url('/img/backlog.jpg') no-repeat center center fixed;
+            background: url('/img/backlog.png') no-repeat center center fixed;
             background-size: cover;
             min-height: 100vh;
             display: flex;

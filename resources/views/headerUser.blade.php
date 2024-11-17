@@ -16,7 +16,7 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background: url('/img/backhome.jpg') no-repeat center center fixed;
+            background: url('/img/welcbanner.png') no-repeat center center fixed;
             background-size: cover;
             color: #ffffff;
         }

@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="./css/login.css">
     <style>
         body {
-            background: url('/img/backlog.jpg') no-repeat center center fixed;
+            background: url('/img/backlog.png') no-repeat center center fixed;
             background-size: cover;
             min-height: 100vh;
             display: flex;
@@ -21,105 +21,79 @@
             align-items: center;
             margin: 0;
             font-family: 'Poppins', sans-serif;
+            color: #333;
         }
 
         .card {
             max-width: 400px;
             border: none;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-            background: rgba(255, 255, 255, 0.7);
-            border-radius: 20px;
-        }
-
-        .card-header {
-            background: linear-gradient(45deg, #ff7e5f, #feb47b);
-            color: white;
-            border-top-left-radius: 20px;
-            border-top-right-radius: 20px;
-            font-weight: 600;
-        }
-
-        .card-body {
+            background: rgba(255, 255, 255, 0.9);
             padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
 
         .card-title {
-            margin-bottom: 0;
             font-size: 1.5rem;
-        }
-
-        .btn-primary {
-            background: linear-gradient(45deg, #ff7e5f, #feb47b);
-            border: none;
-            border-radius: 20px;
             font-weight: 600;
+            color: #333;
         }
 
-        .btn-primary:hover {
-            background: linear-gradient(45deg, #e66465, #9198e5);
+        .btn-login {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            padding: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .btn-login:hover {
+            background-color: #555;
         }
 
         .form-control {
-            border-radius: 20px;
+            border-radius: 5px;
             font-size: 1rem;
+            margin-bottom: 1rem;
+            padding: 0.75rem;
         }
 
-        .card-footer {
-            background-color: rgba(255, 255, 255, 0.7);
-            border-top: none;
-            border-bottom-left-radius: 20px;
-            border-bottom-right-radius: 20px;
+        .footer-text {
+            font-size: 0.9rem;
+            color: #666;
         }
 
-        a {
-            color: #007bff;
+        .footer-text a {
+            color: #4285F4;
+            text-decoration: none;
             font-weight: 600;
+        }
+
+        .footer-text a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 
 <body>
-    <!-- SweetAlert2 script -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    <!-- Trigger SweetAlert2 when login fails -->
-    @if($errors->has('login_failed'))
-        <script>
-            Swal.fire({
-                icon: "error",
-                title: "Error",
-                text: "Username atau Password salah",
-                footer: '<a href="#">Why do I have this issue?</a>'
-            });
-        </script>
-    @endif
     <div class="container-flex">
-        <div class="card text-center">
-            <div class="card-header">
-                <h3 class="card-title">LOGIN</h3>
-            </div>
+        <div class="card">
+            <h2 class="card-title">Login untuk melanjutkan</h2>
+            <p>Masuk menggunakan akun Anda</p>
             <form action="/login" method="POST">
                 @csrf
-                <div class="card-body">
-                    <div class="mb-3">
-                        <input type="text" class="form-control form-control-lg mx-auto" id="username"
-                            name="username" aria-describedby="emailHelp" placeholder="Username"
-                            style="max-width: 300px;">
-                    </div>
-                    <div class="mb-3">
-                        <input type="password" class="form-control form-control-lg mx-auto" id="password"
-                            name="password" placeholder="Password" style="max-width: 300px;">
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <div class="row justify-content-center">
-                        <button type="submit" class="btn btn-primary w-25">LOGIN</button>
-                    </div>
-                    <div class="row m-2">
-                        <a href="register" style="text-decoration:none;">Register</a>
-                    </div>
-                </div>
+                <input type="text" class="form-control" id="username" name="username" placeholder="User" required>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                <button type="submit" class="btn-login">LOGIN</button>
             </form>
+            <div class="footer-text mt-3">
+                Belum punya akun? <a href="register">Buat akun</a><br>
+                Lupa nama pengguna atau kata sandi Anda? <a href="forgot-password">Pulihkan Akun</a>
+            </div>
         </div>
     </div>
 </body>

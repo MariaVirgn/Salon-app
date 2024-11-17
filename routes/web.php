@@ -103,3 +103,10 @@ Route :: middleware('auth:user')->group(function(){
 
 
 });
+
+// Menampilkan halaman form lupa password
+Route::get('/forgot-password', [ForgotPasswordController::class, 'showForgotPasswordForm'])->name('forgot-password');
+
+// Memproses permintaan reset password
+Route::post('/reset-password-request', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('reset-password-request');
+

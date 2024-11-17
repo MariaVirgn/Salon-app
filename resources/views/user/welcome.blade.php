@@ -12,9 +12,7 @@
 
 @section('container')
     <div class="hero">
-        <div class="overlay">
-            <h1>This is Your Muse</h1>
-        </div>
+    
     </div>
     <div class="container">
         <div class="intro-text">
@@ -52,9 +50,10 @@
     <script>
         window.onload = function() {
             const backgrounds = [
-                '/img/home1.jpg',
-                '/img/home2.jpg',
-                '/img/home3.jpg'
+                '/img/home1.png',
+                '/img/home2.png',
+                '/img/home3.png',
+                '/img/home4.png'
             ];
 
             let currentIndex = 0;
@@ -81,16 +80,16 @@
     }
 
     .hero {
-        position: relative;
-        width: 100%;
-        height: 100vh;
-        background-image: url('/img/home1.jpg'); /* Replace with your background image */
-        
-        background-position: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('/img/welcbanner.png'); /* Replace with your background image */
+    background-size: cover; /* Menyesuaikan ukuran gambar agar memenuhi area */
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
     .overlay {
         position: absolute;

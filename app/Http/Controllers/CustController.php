@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class CustController extends Controller
 {
+
     function read()
     {
         $data = Cust::all();
