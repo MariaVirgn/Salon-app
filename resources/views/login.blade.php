@@ -80,6 +80,21 @@
 </head>
 
 <body>
+    <!-- SweetAlert2 script -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Trigger SweetAlert2 when login fails -->
+    @if($errors->has('login_failed'))
+        <script>
+            Swal.fire({
+                icon: "error",
+                title: "Error",
+                text: "Username atau Password salah",
+                footer: '<a href="#">Why do I have this issue?</a>'
+            });
+        </script>
+@endif
+
     <div class="container-flex">
         <div class="card">
             <h2 class="card-title">Login untuk melanjutkan</h2>

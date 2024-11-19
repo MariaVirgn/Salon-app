@@ -75,6 +75,23 @@
         </div>
     </div>
 </div>
+<script>
+        window.onload = function() {
+            const backgrounds = [
+                '/img/home1.png',
+                '/img/home2.png',
+                '/img/home3.png',
+                '/img/home4.png'
+            ];
+
+            let currentIndex = 0;
+            setInterval(() => {
+                document.body.style.backgroundImage = `url(${backgrounds[currentIndex]})`;
+                document.body.style.transition = 'background-image 1s ease-in-out';
+                currentIndex = (currentIndex + 1) % backgrounds.length;
+            }, 5000);
+        };
+    </script>
 
 <style>
     .card-custom {
