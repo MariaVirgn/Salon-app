@@ -2,24 +2,39 @@
 
 @section('container')
 <div class="container" style="margin-top: 15vh;">
-    <div class="card shadow-lg card-custom">
-        <div class="card-header text-center header-custom">
-            <h3 class="card-title mb-0" style="font-weight: bold;">Treatment</h3>
+    <div class="row">
+        <!-- Card 1 -->
+        <div class="col-md-4">
+            <div class="card shadow-lg">
+                <img src="/img/scalp.jpg" class="card-img-top" alt="Quick Scalp Detox">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Quick Scalp Detox</h5>
+                    <p class="card-text">Rp 295.000,00</p>
+                    <button class="btn btn-primary" onclick="showForm(1)">Pesan</button>
+                </div>
+            </div>
         </div>
-        <div class="card-body body-custom">
-            <table id="example1" class="table table-hover table-custom">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Nama Jasa</th>
-                        <th scope="col">Harga</th>
-                        <th scope="col">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody id="tbody">
-                    <!-- Isi tabel akan dimuat di sini -->
-                </tbody>
-            </table>
+        <!-- Card 2 -->
+        <div class="col-md-4">
+            <div class="card shadow-lg">
+                <img src="/img/hair.jpg" class="card-img-top" alt="Metal Detox">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Hair Cut</h5>
+                    <p class="card-text">Rp 350.000,00</p>
+                    <button class="btn btn-primary" onclick="showForm(2)">Pesan</button>
+                </div>
+            </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="col-md-4">
+            <div class="card shadow-lg">
+                <img src="/img/color.jpg" class="card-img-top" alt="Keratin Hair Filler">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Coloring</h5>
+                    <p class="card-text">From Rp 1.000.000,00</p>
+                    <button class="btn btn-primary" onclick="showForm(3)">Pesan</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -76,43 +91,52 @@
     </div>
 </div>
 
+<script>
+        window.onload = function() {
+            const backgrounds = [
+                '/img/home1.png',
+                '/img/home2.png',
+                '/img/home3.png',
+                '/img/home4.png'
+            ];
+
+            let currentIndex = 0;
+            setInterval(() => {
+                document.body.style.backgroundImage = `url(${backgrounds[currentIndex]})`;
+                document.body.style.transition = 'background-image 1s ease-in-out';
+                currentIndex = (currentIndex + 1) % backgrounds.length;
+            }, 5000);
+        };
+    </script>
+
 <style>
-    .card-custom {
+    .card {
         border: none;
         border-radius: 10px;
         overflow: hidden;
-        width: 80%;
-        margin: 0 auto;
         transition: transform 0.2s, box-shadow 0.2s;
     }
 
-    .card-custom:hover {
+    .card:hover {
         transform: translateY(-10px);
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
 
-    .header-custom {
+    .card-title {
+        font-weight: bold;
+    }
+
+    .btn-primary {
         background: linear-gradient(90deg, #6a11cb, #2575fc);
+        border: none;
         color: white;
-        border-radius: 10px 10px 0 0;
-        font-family: 'Arial', sans-serif;
+        padding: 10px 20px;
+        border-radius: 30px;
+        transition: background 0.3s;
     }
 
-    .body-custom {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        border-radius: 0 0 10px 10px;
-        padding: 20px;
-        color: white;
-    }
-
-    .table-custom {
-        width: 100%;
-        background-color: transparent;
-    }
-
-    .thead-dark {
-        background-color: rgba(34, 34, 34, 0.9);
-        color: white;
+    .btn-primary:hover {
+        background: linear-gradient(90deg, #2575fc, #6a11cb);
     }
 
     .modal-custom {
@@ -135,121 +159,62 @@
         color: #6c757d;
     }
 
-    .btn-primary {
-        background: linear-gradient(90deg, #6a11cb, #2575fc);
-        border: none;
-        color: white;
-        padding: 10px 20px;
-        border-radius: 30px;
-        transition: background 0.3s;
-    }
-
-    .btn-primary:hover {
-        background: linear-gradient(90deg, #2575fc, #6a11cb);
-    }
-
-    .btn-secondary {
-        background: #6c757d;
-        border: none;
-        color: white;
-        padding: 10px 20px;
-        border-radius: 30px;
-        transition: background 0.3s;
-    }
-
-    .btn-secondary:hover {
-        background: #565e64;
-    }
-
-    .modal-footer {
-        background-color: #f8f9fa;
-        border-radius: 0 0 10px 10px;
-    }
+    
 </style>
 @endsection
 
-
-
 @section('scripts')
-    <script>
-        $(document).ready(function() {
-            read();
+<script>
+    function showForm(id) {
+        $('#modalPesan').modal('show');
+        var url = "{{ route('formBooking', ':id') }}";
+        url = url.replace(':id', id);
+
+        $.get(url, {}, function(data, status) {
+            $('#idJasa').val(id);
+            $('#nama').val(data.username);
+            $('#nomor').val(data.nomor_cust);
+            $('#alamat').val(data.alamat);
+        });
+    }
+
+    function tambahBooking() {
+        var id = $('#idJasa').val();
+        var jam = $('#jam').val();
+        var tgl = $('#tgl').val();            
+        var pembayaran = $('#pembayaran').val();            
+
+        var url = "{{ route('tambahBooking', ':id') }}";
+        url = url.replace(':id', id);
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
         });
 
-        function read() {
-            var html = "";
-            $.get("{{ route('read_jasa') }}", {}, function(data, status) {
-                for (let i = 0; i < data.length; i++) {
-                    html += "<tr>"
-                    html += "<td>"+data[i].id_jasa+"</td>"
-                    html += "<td>"+data[i].nama_jasa+"</td>"
-                    html += "<td>"+data[i].harga_jasa+"</td>"                    
-                    html += "<td><button class='btn btn-primary' onclick='showForm("+data[i].id_jasa+")'>Pesan</button></td>"                    
-                    html +="</tr>"                                        
-                }
-                $('#tbody').html(html);
-            })
-        }
-
-        function showForm(id) {
-            $('#modalPesan').modal('show');
-            var url = "{{ route('formBooking', ':id') }}";
-            url = url.replace(':id', id);
-
-            $.get(url, {}, function(data, status) {
-                console.log(data);
-                $('#idJasa').val(id);
-                $('#nama').val(data.username);
-                $('#nomor').val(data.nomor_cust);
-                $('#alamat').val(data.alamat);
-            });
-        }
-
-        function tambahBooking() {
-            var id = $('#idJasa').val();
-            var jam = $('#jam').val();
-            var tgl = $('#tgl').val();            
-            var pembayaran = $('#pembayaran').val();            
-
-            var url = "{{ route('tambahBooking', ':id') }}";
-            url = url.replace(':id', id);
-
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-
-            $.ajax({
-                url: url,
-                method: "POST", 
-                data: {
-                    'jam':jam,
-                    'tgl':tgl,
-                    'pembayaran':pembayaran
-                },
-                success: function(data, status) {                    
-                    read();   
-                    $("#modalPesan").modal("hide");
-                    Swal.fire({
+        $.ajax({
+            url: url,
+            method: "POST", 
+            data: {
+                'jam':jam,
+                'tgl':tgl,
+                'pembayaran':pembayaran
+            },
+            success: function(data, status) {                    
+                $("#modalPesan").modal("hide");
+                Swal.fire({
                     title: "Pesanan anda sudah ditambahkan!",
                     width: 600,
                     padding: "3em",
                     color: "#716add",
                     background: "#fff url(/images/trees.png)",
-                    backdrop: `
-                        rgba(0,0,123,0.4)
-                        url("/img/nyan-cat.gif")
-                        left top
-                        no-repeat
-                    `
-                    });
-                },
-                error: function(xhr, status, error) {
-                    console.log(xhr.responseText);
-                }
-            });       
-            
-        }
-    </script>
-@endsection()
+                });
+            },
+            error: function(xhr, status, error) {
+                console.log(xhr.responseText);
+            }
+        });       
+    }
+</script>
+@endsection
