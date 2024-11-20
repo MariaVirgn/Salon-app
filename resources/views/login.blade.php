@@ -92,9 +92,15 @@
                 text: "Username atau Password salah",
                 footer: '<a href="#">Why do I have this issue?</a>'
             });
+<<<<<<< HEAD
         </script>
     @endif
     
+=======
+        </script>
+@endif
+
+>>>>>>> c7cea2f3f4702fc4e22bd8bd9094ee181395307e
     <div class="container-flex">
         <div class="card">
             <h2 class="card-title">Login untuk melanjutkan</h2>
